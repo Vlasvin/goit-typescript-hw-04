@@ -8,7 +8,6 @@ interface SelectedMenu {
   id: MenuIds;
 }
 
-// Додати тип Menu Selected
 interface MenuSelected {
   selectedMenu: SelectedMenu;
 }
@@ -17,7 +16,6 @@ const MenuSelectedContext = createContext<MenuSelected>({
   selectedMenu: { id: "first" },
 });
 
-// Додайте тип MenuAction
 interface MenuAction {
   onSelectedMenu: (object: SelectedMenu) => void;
 }
@@ -31,7 +29,6 @@ type PropsProvider = {
 };
 
 function MenuProvider({ children }: PropsProvider) {
-  // Додати тип для SelectedMenu він повинен містити { id }
   const [selectedMenu, setSelectedMenu] = useState<SelectedMenu>({
     id: "first",
   });
@@ -60,7 +57,7 @@ function MenuProvider({ children }: PropsProvider) {
 }
 
 type PropsMenu = {
-  menus: Menu[]; // Додайте вірний тип для меню
+  menus: Menu[];
 };
 
 function MenuComponent({ menus }: PropsMenu) {
